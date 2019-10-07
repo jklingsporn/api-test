@@ -1,0 +1,8 @@
+type: "object"
+properties:
+  bets:
+    type: "array"
+    description: "The allowed bet sizes"
+    items:
+      format: "integer"
+      type: "int64"

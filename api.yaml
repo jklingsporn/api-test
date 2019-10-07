@@ -1,0 +1,70 @@
+swagger: "2.0"
+info:
+  description: "API-Definition of GeSports Casino Integration"
+  version: "1.0.0"
+  title: "GeSports Casino-API"
+  contact:
+    email: "klingsporn@badmonkee.de"
+host: "github.com"
+basePath: "/goalent/goalbingo-server"
+tags:
+- name: "casino"
+  description: "The one and only endpoint"
+schemes:
+- "http"
+paths:
+  /casino/get:
+    post:
+      tags:
+      - "casino"
+      summary: "Authorize client and return wallet"
+      description: ""
+      operationId: "casinoGet"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "./definitions/GetPayload.yaml"
+      responses:
+        200:
+          schema:
+            $ref: "./definitions/GetResponse.yaml"
+      security:
+        - basic : []
+  /casino/bet:
+    post:
+      tags:
+      - "casino"
+      summary: "Place a bet and withdraw the provided amount"
+      description: ""
+      operationId: "casinoBet"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "./definitions/BetPayload.yaml"
+      responses:
+        200:
+          schema:
+            $ref: "./definitions/BetResponse.yaml"
+      security:
+        - bearer : []
+components:
+  securitySchemes:
+    basic:
+      type: "http"
+      scheme: "basic"
+    bearer:
+      type: "http"
+      bearerFormat: "JWT"
+      scheme: "bearer"
