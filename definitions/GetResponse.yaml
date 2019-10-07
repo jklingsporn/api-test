@@ -1,9 +1,9 @@
-type: "object"
+type: object
 properties:
   token:
-    $ref: "./JWT.yaml"
-    description: "A JWT to use for subsequent requests."
+    $ref: './JWT.yaml'
+    description: A JWT to use for subsequent requests.
   wallet:
-    $ref: "./Wallet.yaml"
+    $ref: './Wallet.yaml'
   settings:
-    $ref: "./Settings.yaml"
+    $ref: './Settings.yaml'

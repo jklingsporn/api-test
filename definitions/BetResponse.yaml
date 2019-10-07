@@ -1,4 +1,4 @@
-type: "object"
+type: object
 properties:
   wallet:
-    $ref: "./Wallet.yaml"
+    $ref: './Wallet.yaml'

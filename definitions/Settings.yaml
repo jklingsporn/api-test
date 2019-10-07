@@ -1,8 +1,8 @@
-type: "object"
+type: object
 properties:
   bets:
-    type: "array"
-    description: "The allowed bet sizes"
+    type: array
+    description: The allowed bet sizes
     items:
-      format: "integer"
-      type: "int64"
+      type: integer
+      format: int64

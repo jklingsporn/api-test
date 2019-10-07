@@ -1,70 +1,74 @@
-openapi: "3.0.0"
+openapi: 3.0.0
 info:
-  description: "API-Definition of GeSports Casino Integration"
-  version: "1.0.0"
-  title: "GeSports Casino-API"
+  description: API-Definition of GeSports Casino Integration
+  version: 1.0.0
+  title: GeSports Casino-API
   contact:
-    email: "klingsporn@badmonkee.de"
-host: "github.com"
-basePath: "/goalent/goalbingo-server"
+    email: klingsporn@badmonkee.de
+host: github.com
+basePath: /goalent/goalbingo-server
 tags:
-- name: "casino"
-  description: "The one and only endpoint"
+- name: casino
+  description: The one and only endpoint
 schemes:
-- "http"
+- http
 paths:
   /casino/get:
     post:
       tags:
-      - "casino"
-      summary: "Authorize client and return wallet"
-      description: ""
-      operationId: "casinoGet"
+      - casino
+      summary: Authorize client and return wallet
+      description: 
+      operationId: casinoGet
       consumes:
-      - "application/json"
+      - application/json
       produces:
-      - "application/json"
+      - application/json
       parameters:
-      - in: "body"
-        name: "body"
+      - in: body
+        name: body
         required: true
         schema:
-          $ref: "./definitions/GetPayload.yaml"
+          $ref: './definitions/GetPayload.yaml'
       responses:
         200:
           schema:
-            $ref: "./definitions/GetResponse.yaml"
+            $ref: './definitions/GetResponse.yaml'
+        401:
+          description: If the basic auth parameters are invalid
+        403:
+          description: If the session provided is invalid or used
       security:
         - basic : []
   /casino/bet:
     post:
       tags:
-      - "casino"
-      summary: "Place a bet and withdraw the provided amount"
-      description: ""
-      operationId: "casinoBet"
+      - casino
+      summary: Place a bet and withdraw the provided amount
+      description: 
+      operationId: casinoBet
       consumes:
-      - "application/json"
+      - application/json
       produces:
-      - "application/json"
+      - application/json
       parameters:
-      - in: "body"
-        name: "body"
+      - in: body
+        name: body
         required: true
         schema:
-          $ref: "./definitions/BetPayload.yaml"
+          $ref: './definitions/BetPayload.yaml'
       responses:
         200:
           schema:
-            $ref: "./definitions/BetResponse.yaml"
+            $ref: './definitions/BetResponse.yaml'
       security:
         - bearer : []
 components:
   securitySchemes:
     basic:
-      type: "http"
-      scheme: "basic"
+      type: http
+      scheme: basic
     bearer:
-      type: "http"
-      bearerFormat: "JWT"
-      scheme: "bearer"
+      type: http
+      bearerFormat: JWT
+      scheme: bearer

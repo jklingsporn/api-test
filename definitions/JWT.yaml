@@ -1,27 +1,27 @@
-type: "object"
-description: "The payload of the JWT"
+type: object
+description: The payload of the JWT
 properties:
   header:
-    type: "object"
+    type: object
     properties:
-      "alg":
-        type: "string"
-        default: "HS256"
-      "typ":
-        type: "string"
-        default: "JWT"
+      alg:
+        type: string
+        default: HS256
+      typ:
+        type: string
+        default: JWT
   payload:
-    type: "object"
+    type: object
     properties:
       sub:
-        type: "string"
-        description: "The GeSports UserId"
+        type: string
+        description: The GeSports UserId
       name:
-        type: "string"
-        description: "Display name of the user in the app"
+        type: string
+        description: Display name of the user in the app
       eat:
-        type: "integer"
-        format: "utc-millisec"
-        description: "when the token expires"
+        type: integer
+        format: utc-millisec
+        description: when the token expires
   signature:
     type: string
